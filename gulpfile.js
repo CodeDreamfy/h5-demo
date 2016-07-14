@@ -4,7 +4,7 @@ var _postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var _import = require('postcss-import');
 var autoprefixer = require('autoprefixer');
-var csswring = require('csswring');
+var csswring = require('csswring'); //会去掉注释，fuck
 var cssmqpacker = require('css-mqpacker');
 var px2rem = require('postcss-px2rem');
 var nested = require('postcss-nested');
@@ -14,7 +14,6 @@ gulp.task('postcss', function(){
     _import,
     nested,
     cssmqpacker,
-    csswring,
     px2rem({remUnit: 75}),
     autoprefixer
   ];

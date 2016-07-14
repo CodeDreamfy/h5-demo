@@ -1,3 +1,5 @@
+/* reset */
+
 * {
   box-sizing: border-box;
 }
@@ -5,17 +7,19 @@
 html,
 body {
   -webkit-user-select: none;
+  /* 禁止选中文本（如无文本选中需求，此为必选项） */
   -moz-user-select: none;
    -ms-user-select: none;
        user-select: none;
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
   height: 100%;
   overflow: hidden;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 0.186667rem;
   line-height: 1.5;
   color: #333;
@@ -35,6 +39,8 @@ p {
 
 a {
   text-decoration: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -51,7 +57,13 @@ h1,
 h2,
 h3 {
   font-size: 100%;
-  font-weight: 400;
+  font-weight: normal;
+}
+
+/* utils */
+
+.clearfix {
+  *zoom: 1;
 }
 
 .clearfix:after {
@@ -62,12 +74,20 @@ h3 {
   height: 0;
 }
 
+/* common */
+
 .wrapper {
   width: 100%;
   height: 100%;
   margin: 0 auto;
   background: #f5f5f5;
 }
+
+/* reset */
+
+/* utils */
+
+/* common */
 
 .machine-items {
   padding: 0 0.32rem;
@@ -77,11 +97,17 @@ h3 {
   height: 1.173333rem;
   line-height: 1.173333rem;
   font-size: 0.373333rem;
-  border-bottom: 0.013333rem solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
 }
 
 .machine-items .machine-content {
   padding-bottom: 0.28rem;
+}
+
+/* model */
+
+.machine-status {
+  position: relative;
 }
 
 .machine-status .machine-title {
@@ -92,60 +118,108 @@ h3 {
   padding-top: 0.666667rem;
 }
 
-.machine-status .m-status-list li {
+.machine-status .machine-content a {
   width: 25%;
   float: left;
   text-align: center;
   margin-bottom: 0.853333rem;
 }
 
-.machine-status .m-status-list li .type {
+.machine-status .machine-content a .type {
   font-size: 0.346667rem;
   color: #343434;
 }
 
-.machine-status .m-status-list:after {
+.machine-status .machine-content:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.machine-status .m-status-list .num {
+.machine-status .machine-content .num {
   margin-bottom: 0.533333rem;
+  position: relative;
   line-height: 0.666667rem;
   height: 0.666667rem;
 }
 
-.machine-status .m-status-list .num i {
+.machine-status .machine-content .num i {
   font-size: 0.426667rem;
   color: #049cff;
 }
 
-.machine-status .m-status-list .num small,
-.machine-status .m-status-list .num sup,
-.machine-status .m-status-list .num sub {
+.machine-status .machine-content .num small,
+.machine-status .machine-content .num sup,
+.machine-status .machine-content .num sub {
   color: #b9daf9;
+  display: inline-block;
 }
 
-.machine-status .m-status-list .speed .num small {
+.machine-status .machine-content .speed .num small {
   font-size: 0.373333rem;
 }
 
-.machine-status .m-status-list .time .num small {
+.machine-status .machine-content .time .num small {
   font-size: 0.24rem;
 }
 
-.machine-status .m-status-list .mode .num {
+.machine-status .machine-content .temperature .num sup {
+  position: relative;
+  top: -0.186667rem;
+  display: inline-block;
+}
+
+.machine-status .machine-content .mode .num {
   background: url(../../img/ico1.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
 }
 
-.machine-status .m-status-list .work-status .num {
+.machine-status .machine-content .work-status .num {
   background: url(../../img/ico2.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
 }
 
-.machine-status .m-status-list .warning .num {
+.machine-status .machine-content .warning .num {
   background: url(../../img/ico3.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
+}
+
+.machine-status .machine-content .warning .num em {
+  width: 0.346667rem;
+  height: 0.346667rem;
+  line-height: 0.373333rem;
+  border-radius: 50%;
+  text-align: center;
+  background: #ff3c02;
+  font-size: 0.2rem;
+  color: #fff;
+  position: absolute;
+  top: -0.24rem;
+  left: 60%;
+}
+
+.machine-status .arrow {
+  position: absolute;
+  bottom: 0.333333rem;
+  left: 0;
+  width: 100%;
+  height: 0.293333rem;
+  text-align: center;
+}
+
+.machine-status .arrow i {
+  width: 0.493333rem;
+  height: 0.24rem;
+  display: inline-block;
+  background: gray;
+  overflow: hidden;
+}
+
+.machine-status .arrow i s {
+  text-decoration: none;
+  color: #c6c6c6;
+  position: relative;
+  top: -0.32rem;
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
 }
