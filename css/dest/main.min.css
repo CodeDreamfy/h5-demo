@@ -80,6 +80,7 @@ h3 {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  overflow-y: auto;
   background: #f5f5f5;
 }
 
@@ -91,7 +92,12 @@ h3 {
 
 .machine-items {
   padding: 0 0.32rem 0.28rem;
+  background: #fff;
+  margin-top: 0.213333rem;
+  box-shadow: 0 0.013333rem 0 0.013333rem #e2e2e2;
 }
+
+/*no*/
 
 .machine-items .machine-title {
   height: 1.173333rem;
@@ -108,6 +114,9 @@ h3 {
 
 .machine-status {
   position: relative;
+  background: none;
+  box-shadow: none;
+  margin-bottom: 0;
 }
 
 .machine-status .machine-title {

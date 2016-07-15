@@ -4,7 +4,9 @@
 
 /* common */
 .machine-items {
-  padding: 0 24px 21px;
+  padding: 0 24px 21px; background: #fff;
+  margin-top: 16px;
+  box-shadow: 0 1px 0 1px #e2e2e2;/*no*/
   .machine-title {
     height: 88px; line-height: 88px;
     font-size: 28px;
@@ -15,7 +17,8 @@
 
 /* model */
 .machine-status {
-  position: relative;
+  position: relative; background: none;
+  box-shadow: none; margin-bottom: 0;
   .machine-title { color: #8995ad;}
   .machine-content { padding-top: 50px; }
   .machine-content {
@@ -155,9 +158,13 @@
       }
     }
   }
+}
+.machine-setheat {
 
 }
+.machine-speed {
 
+}
 /* animation */
 .deg {
   transform: rotate(-180deg);
