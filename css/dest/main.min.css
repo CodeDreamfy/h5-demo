@@ -103,6 +103,7 @@ h3 {
   height: 1.173333rem;
   line-height: 1.173333rem;
   font-size: 0.373333rem;
+  color: #848ea9;
   border-bottom: 1px solid #e2e2e2;
 }
 
@@ -117,10 +118,6 @@ h3 {
   background: none;
   box-shadow: none;
   margin-bottom: 0;
-}
-
-.machine-status .machine-title {
-  color: #8995ad;
 }
 
 .machine-status .machine-content {
@@ -156,7 +153,7 @@ h3 {
 }
 
 .machine-status .machine-content .num i {
-  font-size: 0.426667rem;
+  font-size: 0.493333rem;
   color: #049cff;
 }
 
@@ -250,8 +247,8 @@ h3 {
 }
 
 .machine-workmode .swiper-container .swiper-wrapper .swiper-slide.active {
-  background: -webkit-linear-gradient(top, #ededed, transparent);
-  background: linear-gradient(180deg, #ededed, transparent);
+  background: -webkit-linear-gradient(#ededed, #fff);
+  background: linear-gradient(#ededed, #fff);
   box-shadow: inset 0 0.013333rem 0.026667rem 0 #ccc;
 }
 
@@ -307,4 +304,79 @@ h3 {
 .deg {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
+}
+
+/* ui-slider-bar */
+
+.ui-slide-cont {
+  padding: 0 0.32rem;
+}
+
+.ui-slide-cont .ui-slider-bar {
+  width: 100%;
+  height: 1.066667rem;
+  position: relative;
+}
+
+.ui-slide-cont .ui-slider-bar .ui-slider-bg {
+  width: 100%;
+  height: 8px;
+  background: #ebebeb;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  z-index: 2;
+  box-shadow: inset 0 0 1px 0 #ccc;
+}
+
+.ui-slide-cont .ui-slider-bar .ui-slider-range {
+  width: 0;
+  background: #109fff;
+  z-index: 3;
+}
+
+.ui-slide-cont .ui-slider-bar .ui-slider-handle {
+  width: 0.533333rem;
+  height: 0.533333rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.266667rem;
+  margin-left: -0.266667rem;
+  background: #109fff;
+  z-index: 4;
+  left: 0;
+}
+
+.ui-slide-cont .ui-slider-bar .stalls-item {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 8px;
+  position: relative;
+}
+
+.ui-slide-cont .ui-slider-bar .stalls-item:after {
+  content: '';
+  background: #ebebeb;
+  /*background: #b9daf9;*/
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.173333rem;
+  right: 0;
+  width: 0.346667rem;
+  height: 0.346667rem;
+  border-radius: 50%;
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum=1.0">
+  <title>Document</title>
+  <script src="./js/lib/zepto.js"></script>
+  <style>
+    * { margin:0; padding:0; }
+    .box { width: 360px; height: 100px; background: #ccc;}
+  </style>
+
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    $('.box').html($(window).width())
+  </script>
+</body>
+</html>

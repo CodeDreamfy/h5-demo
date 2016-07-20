@@ -9,7 +9,7 @@
   box-shadow: 0 1px 0 1px #e2e2e2;/*no*/
   .machine-title {
     height: 88px; line-height: 88px;
-    font-size: 28px;
+    font-size: 28px; color: #848ea9;
     border-bottom: 1px solid #e2e2e2;/*no*/
   }
   .machine-content { overflow: hidden;}
@@ -19,7 +19,6 @@
 .machine-status {
   position: relative; background: none;
   box-shadow: none; margin-bottom: 0;
-  .machine-title { color: #8995ad;}
   .machine-content { padding-top: 50px; }
   .machine-content {
     a {
@@ -41,7 +40,7 @@
     .num {
       margin-bottom: 40px; position: relative;
       line-height: 50px; height: 50px;
-      i { font-size: 32px; color: #049cff;}
+      i { font-size: 37px; color: #049cff;}
       small,sup,sub { color: #b9daf9; display: inline-block;}
     }
     .speed {
@@ -105,7 +104,7 @@
      .swiper-wrapper {
       .swiper-slide {
         &.active {
-          background: linear-gradient(180deg, #ededed, transparent);
+          background: linear-gradient(#ededed, #fff);
           box-shadow: inset 0 1px 2px 0 #ccc;
         }
         padding-top: 30px;
@@ -168,4 +167,49 @@
 /* animation */
 .deg {
   transform: rotate(-180deg);
+}
+
+/* ui-slider-bar */
+.ui-slide-cont {
+  padding: 0 24px;
+  .ui-slider-bar {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    .ui-slider-bg {
+      width: 100%;
+      height: 8px;/*no*/
+      background: #ebebeb;
+      border-radius: 6px;/*no*/
+      position: absolute;
+      top: 50%; margin-top: -4px;/*no*/
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      z-index: 2;
+      box-shadow: inset 0 0 1px 0 #ccc;/*no*/
+    }
+    .ui-slider-range {
+      width: 0;
+      background: #109fff;
+      z-index: 3;
+    }
+    .ui-slider-handle {
+      width: 40px; height: 40px; border-radius: 50%;
+      position: absolute; top: 50%;  margin-top: -20px; margin-left: -20px;
+      background: #109fff; z-index: 4;
+      left: 0;
+    }
+    .stalls-item {
+      flex-grow: 1;
+      height: 8px;/*no*/
+      position: relative;
+      &:after {
+        content:''; background: #ebebeb; /*background: #b9daf9;*/ z-index: 3;
+        position: absolute; top: 50%; margin-top: -13px; right: 0;
+        width: 26px; height: 26px; border-radius: 50%;
+      }
+    }
+  }
 }
