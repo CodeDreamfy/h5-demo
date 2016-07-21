@@ -380,3 +380,23 @@ h3 {
   height: 0.346667rem;
   border-radius: 50%;
 }
+
+.ui-slide-cont .ui-slider-xlabel {
+  width: 100%;
+  font-size: 0.293333rem;
+  height: 0.346667rem;
+  line-height: 0.293333rem;
+  color: #646464;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}

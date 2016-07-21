@@ -212,4 +212,16 @@
       }
     }
   }
+  .ui-slider-xlabel {
+    width: 100%; font-size: 22px;
+    height: 26px; line-height: 22px;
+    color: #646464;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .ui-slider-desc {
+
+    }
+  }
 }
