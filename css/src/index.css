@@ -171,7 +171,7 @@
 
 /* ui-slider-bar */
 .ui-slide-cont {
-  padding: 0 24px;
+  padding: 60px 24px 0;
   .ui-slider-bar {
     width: 100%;
     height: 80px;
@@ -198,18 +198,27 @@
     .ui-slider-handle {
       width: 40px; height: 40px; border-radius: 50%;
       position: absolute; top: 50%;  margin-top: -20px; margin-left: -20px;
-      background: #109fff; z-index: 4;
+      background: #109fff; color: #109fff; z-index: 4;
       left: 0;
+      span.now {
+        width: 200%; text-align: center; overflow: hidden;
+        position: absolute; top: -45px; left: 50%; transform: translateX(-50%);
+        padding: 0 3px;/*no*/
+        color: inherit; font-size: 25px;
+      }
     }
     .stalls-item {
       flex-grow: 1;
       height: 8px;/*no*/
       position: relative;
-      &:after {
-        content:''; background: #ebebeb; /*background: #b9daf9;*/ z-index: 3;
+      &.pit b {
+        background: #ebebeb; z-index: 3;
         position: absolute; top: 50%; margin-top: -13px; right: 0;
         width: 26px; height: 26px; border-radius: 50%;
       }
+    }
+    .pit.stalls-item-first {
+      b.b1 { left: 0;}
     }
   }
   .ui-slider-xlabel {
