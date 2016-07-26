@@ -13,8 +13,26 @@ $(function(){
     slidesPerView : 4,
   });
 
+  $('.machine-setheat .ui-slide-cont').Uislidebar({
+    desc: ['-10','-12','-14','-16'],
+    allowSlide: true,
+    descShow: false,
+    spotShow: false,
+    progress: true,
+    initialDuang: 2
+  });
+  $('.machine-speed .ui-slide-cont').Uislidebar({
+    allowSlide: true,
+    descShow: false
+  })
 
-  +function(){
+  $('.machine-timer .ui-slide-cont').Uislidebar({
+    desc: ['0秒','30秒','1分钟','1分30秒','2分钟','2分30秒','3分钟','3分30秒','5分钟'],
+    allowSlide: true
+  })
+
+
+  function basiceUislide(){
     var $uiSlideCont = $('.ui-slide-cont');
     var $uiBtn = $('.ui-slider-handle', $uiSlideCont);
     var o = {
@@ -79,7 +97,7 @@ $(function(){
     //判断是否出界
     function range(d){
       if(d <= 0){
-        d = 0
+        d = 0;
       }else if(d >= Width){
         d = Width;
       }
@@ -102,6 +120,6 @@ $(function(){
       return o;
     }
 
-  }()
+  };
 
 })
