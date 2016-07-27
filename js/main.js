@@ -16,10 +16,10 @@ $(function(){
   $('.machine-setheat .ui-slide-cont').Uislidebar({
     desc: ['-10','-12','-14','-16'],
     allowSlide: true,
-    descShow: false,
-    spotShow: false,
-    progress: true,
-    initialDuang: 2
+    descShow: true,
+    spotShow: true,
+    progress: false,
+    initialDuang: 1
   });
   $('.machine-speed .ui-slide-cont').Uislidebar({
     allowSlide: true,

@@ -32,10 +32,10 @@ $.extend(UiSlideBar.prototype, {
       //set stepLength - 存储档位
       this.stepLength = this.options.desc.length;
 
-      this.W = this.$wrap.width();   //容器宽度
-      this.dp = this.W/(this.stepLength-1);  //单位档长度
+      this.W = this.$uiBar.width();   //容器宽度
+      this.divNum= this.W/(this.options.desc.length-1);  //单位档长度
       this.dpRem = parseInt($('html').css('fontSize')); //单位rem
-      this.ml = $('.ui-slider-bar').position().left;  //距离左边的距离
+      this.ml = $('.ui-slider-bar').offset().left;  //距离左边的距离
       this.moveStart = this.moveEnd = 0;
 
       //重新计算传入初始化档数
@@ -45,9 +45,9 @@ $.extend(UiSlideBar.prototype, {
       //initial
       var initLen; // -1 代表div个数  -2 代表第几个元素
       initLen = (this.initialDuang == 0 ? this.initialDuang : this.initialDuang-1); //初始化长度
-      var leftLen = ((this.dp * initLen)/this.dpRem) + 'rem';
+      var leftLen = ((this.divNum* initLen)/this.dpRem) + 'rem';
       this.$handle.css({
-        'left': leftLen,
+        'translate3d': leftLen+',0,0',
         'background': this.options.btnColor, 'color': this.options.btnColor}); //set 按钮
       this.$range.css({'width': leftLen, 'background': this.options.btnColor});
       //设置tips
@@ -61,7 +61,6 @@ $.extend(UiSlideBar.prototype, {
       }
     },
     _render: function() {
-
       //设置档位刻度与是否可见
       for(var i=0; i<= this.stepLength-2; i++){
         var $item = $('<div class="stalls-item"></div>');
@@ -96,18 +95,17 @@ $.extend(UiSlideBar.prototype, {
         }
       }
 
+      //重置spot颜色
+      this.clearSpotColor();
+
       //是否显示进度条
       if(this.options.progress){
         this.$range.show();
+        this.setSpot();
       }else {
         this.$range.hide();
       }
 
-      //重置spot颜色
-      this.clearSpotColor();
-      this.$spot.children(':lt('+this.deepStalls+')').each(function(i,e){
-        $(e).find('b').css('background','#109fff');
-      })
 
     },
     _bindEvent: function(){
@@ -115,24 +113,25 @@ $.extend(UiSlideBar.prototype, {
       this.$wrap.on('touchstart', '.ui-slider-bar', function(e){
         event.preventDefault();
         var g = e.originalEvent.touches[0];
+        this.ml = $('.ui-slider-bar').offset().left;
         var distance = _this.range(g.pageX - _this.ml);
-        _this.$handle.stop(true, true).animate({
-          'left': _this.correct(distance).left
-        }, 200, function(){
+        distance = _this.correct(distance);
+        // console.log(distance.left, _this.deepStalls)
+        _this.$handle.animate({
+          'translate3d': distance.left+',0,0'
+        }, 300, function(){
           _this.$handle.find('span').text();
-          _this.$handle.find('span').text(_this.options.desc[_this.correct(distance).site]);
+          _this.$handle.find('span').text(_this.options.desc[distance.site]);
         });
-        console.log(_this.correct(distance).left)
-        _this.$range.stop(true, true).animate({width: _this.correct(distance).left}, 300, function(){
-          _this.clearSpotColor();
-          _this.$spot.children(':lt('+_this.deepStalls+')').each(function(i,e){
-            $(e).find('b').css({background: '#109fff'});
-          })
+        // console.log(_this.correct(distance).left)
+        _this.$range.animate({width: distance.left}, 300, function(){
+          _this.setSpot();
         });
 
       }).on('touchstart', '.ui-slider-handle', function(e){
         event.preventDefault();
         var g = e.originalEvent.touches[0];
+        this.ml = $('.ui-slider-bar').offset().left;
         _this.moveStart = g.pageX - _this.ml;
 
       }).on('touchmove', '.ui-slider-handle', function(e){
@@ -141,40 +140,44 @@ $.extend(UiSlideBar.prototype, {
         _this.moveEnd = g.pageX - _this.ml;
         var distance = _this.range(_this.moveEnd);
         var self = $(this);
-        self.stop(true,true).animate({
-          'left': distance
-        }, 200, function(){
+        self.animate({
+          'translate3d': distance+'px,0,0'
+        }, 300, function(){
           self.find('span').text()
           self.find('span').html(_this.options.desc[_this.correct(distance).site]);
         });
-        _this.$range.stop(true, true).animate({width: distance}, 300, function(){
-          _this.clearSpotColor();
-          _this.$spot.children(':lt('+_this.deepStalls+')').each(function(i,e){
-            $(e).find('b').css({background: '#109fff'});
-          })
-
+        _this.$range.animate({width: distance}, 300, function(){
+          _this.setSpot('touchmove');
         });
 
       }).on('touchend', '.ui-slider-handle', function(e){
         var g = e.originalEvent.changedTouches[0];
+        this.ml = $('.ui-slider-bar').offset().left;
         _this.moveEnd = g.pageX - _this.ml;
         var distance = _this.range(_this.moveEnd);
+        distance = _this.correct(distance);
         var self = $(this);
-        self.stop(true,true).animate({
-          'left': _this.correct(distance).left
-        }, 200, function(){
+        self.animate({
+          'translate3d': distance.left+',0,0'
+        }, 300, function(){
           self.find('span').text()
-          self.find('span').html(_this.options.desc[_this.correct(distance).site]);
+          self.find('span').html(_this.options.desc[distance.site]);
         });
-        _this.$range.stop(true, true).animate({width: _this.correct(distance).left}, 300, function(){
-          _this.clearSpotColor();
-          _this.$spot.children(':lt('+_this.deepStalls+')').each(function(i,e){
-            $(e).find('b').css({background: '#109fff'});
-          })
+        _this.$range.animate({width: distance.left}, 300, function(){
+          _this.setSpot();
         });
         event.preventDefault();
         // console.log(_this.options.desc[_this.deepStalls])
       })
+    },
+    prevAll: function(arr){
+      var _this = this;
+      var g = arr.filter(function(i){
+        if(i<_this.deepStalls){
+          return true
+        }
+      })
+      return g;
     },
     range: function(d){
       if(d <= 0){
@@ -188,21 +191,40 @@ $.extend(UiSlideBar.prototype, {
       if(!d){
         d = 0;
       }
-      var integer = (d/this.dp).toFixed(2);
+      var integer = (d/this.divNum).toFixed(2);
       var t = Math.round(integer);
       this.deepStalls = t;
       var o = {
-        left: ((t*this.dp)/this.dpRem).toFixed(6) + 'rem',
+        left: ((t*this.divNum)/this.dpRem).toFixed(6) +'rem',
         site: t
       }
       return o;
     },
     clearSpotColor: function(){  //重置刻度点颜色
-      var _this = this;
-      _this.$spot.children().each(function(i, e){
-        var $this = $(e);
-        $this.find('b').css('background', '#ebebeb');
+      this.$spot.children().each(function(i, e){
+        $(e).find('b').css('background', '#ebebeb');
       })
+      return this
+    },
+    setSpot: function(){
+      var args = arguments[0];
+      if(this.options.progress){
+        this.clearSpotColor();
+        var c = this.prevAll(this.$spot.children());
+        if(c.length == 0){
+          this.$spot.children().eq(0).find('.b1').css({background: '#109fff'});
+        }else {
+          c.each(function(i,e){
+            $(e).find('b').css({background: '#109fff', opacity: 1});
+            if( args == 'touchmove' && i >0){
+              if(i == c.length-1 ){
+                $(e).find('b').css({background: '#109fff', opacity: 0.5});
+              }
+            }
+          })
+        }
+      }
+      return this;
     },
     computeInitialD: function(){ //处理初始化档位
       var cm = this.options.initialDuang;
