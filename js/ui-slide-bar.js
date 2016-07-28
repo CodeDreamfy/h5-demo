@@ -38,16 +38,21 @@ $.extend(UiSlideBar.prototype, {
       this.ml = $('.ui-slider-bar').offset().left;  //距离左边的距离
       this.moveStart = this.moveEnd = 0;
 
+      //清除元素
+      this.$xlabel.children().remove();
+      this.$spot.children().remove();
+
       //重新计算传入初始化档数
-      this.initialDuang = this.computeInitialD(this.options.initialDuang); //处理初始化参数为负数的情况
+      this.initialDuang = this.initDuang(this.options.initialDuang); //处理初始化参数为负数的情况
       this.deepStalls = this.initialDuang != 0 ? this.initialDuang - 1 : 0; //div个数
 
       //initial
       var initLen; // -1 代表div个数  -2 代表第几个元素
-      initLen = (this.initialDuang == 0 ? this.initialDuang : this.initialDuang-1); //初始化长度
+      // initLen = (this.initialDuang == 0 ? this.initialDuang : this.initialDuang-1); //初始化长度
+      initLen = this.initialDuang -1;
       var leftLen = ((this.divNum* initLen)/this.dpRem) + 'rem';
       this.$handle.css({
-        'translate3d': leftLen+',0,0',
+        'transform': 'translate3d('+leftLen+',0,0)',
         'background': this.options.btnColor, 'color': this.options.btnColor}); //set 按钮
       this.$range.css({'width': leftLen, 'background': this.options.btnColor});
       //设置tips
@@ -225,6 +230,20 @@ $.extend(UiSlideBar.prototype, {
         }
       }
       return this;
+    },
+    initDuang: function(){
+      var zhi = (this.options.initialDuang).toString();
+      var len;
+      if(this.options.desc.indexOf(zhi) != -1){
+        this.options.desc.forEach(function(e,i){
+          if(e == zhi){
+             len = i +1;
+          }
+        })
+      }else {
+        len = 0;
+      }
+      return len;
     },
     computeInitialD: function(){ //处理初始化档位
       var cm = this.options.initialDuang;

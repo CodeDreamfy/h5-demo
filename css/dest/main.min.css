@@ -112,85 +112,101 @@ h3 {
 
 .machine-status {
   position: relative;
-  background: none;
+  background: transparent;
   box-shadow: none;
   margin-bottom: 0;
 }
 
 .machine-status .machine-content {
-  padding-top: 0.666667rem;
+  overflow: hidden;
+  position: relative;
+  padding: 0.013333rem;
 }
 
-.machine-status .machine-content a {
+.machine-status .machine-content .contwrap {
+  padding-top: 0.666667rem;
+  -webkit-transition: height 1s, -webkit-transform 1s;
+  transition: height 1s, -webkit-transform 1s;
+  transition: height 1s, transform 1s;
+  transition: height 1s, transform 1s, -webkit-transform 1s;
+  overflow: hidden;
+}
+
+.machine-status .machine-content .contwrap.slide {
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+}
+
+.machine-status .machine-content .contwrap a {
   width: 25%;
   float: left;
   text-align: center;
 }
 
-.machine-status .machine-content a:nth-child(n+5) {
+.machine-status .machine-content .contwrap a:nth-child(n+5) {
   margin-top: 0.853333rem;
 }
 
-.machine-status .machine-content a .type {
+.machine-status .machine-content .contwrap a .type {
   font-size: 0.346667rem;
   color: #343434;
 }
 
-.machine-status .machine-content:after {
+.machine-status .machine-content .contwrap:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.machine-status .machine-content .num {
+.machine-status .machine-content .contwrap .num {
   margin-bottom: 0.533333rem;
   position: relative;
   line-height: 0.666667rem;
   height: 0.666667rem;
 }
 
-.machine-status .machine-content .num i {
+.machine-status .machine-content .contwrap .num i {
   font-size: 0.493333rem;
   color: #049cff;
 }
 
-.machine-status .machine-content .num small,
-.machine-status .machine-content .num sup,
-.machine-status .machine-content .num sub {
+.machine-status .machine-content .contwrap .num small,
+.machine-status .machine-content .contwrap .num sup,
+.machine-status .machine-content .contwrap .num sub {
   color: #b9daf9;
   display: inline-block;
 }
 
-.machine-status .machine-content .speed .num small {
+.machine-status .machine-content .contwrap .speed .num small {
   font-size: 0.373333rem;
 }
 
-.machine-status .machine-content .time .num small {
+.machine-status .machine-content .contwrap .time .num small {
   font-size: 0.24rem;
 }
 
-.machine-status .machine-content .temperature .num sup {
+.machine-status .machine-content .contwrap .temperature .num sup {
   position: relative;
   top: -0.186667rem;
   display: inline-block;
 }
 
-.machine-status .machine-content .mode .num {
+.machine-status .machine-content .contwrap .mode .num {
   background: url(../../img/ico1.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
 }
 
-.machine-status .machine-content .work-status .num {
+.machine-status .machine-content .contwrap .work-status .num {
   background: url(../../img/ico2.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
 }
 
-.machine-status .machine-content .warning .num {
+.machine-status .machine-content .contwrap .warning .num {
   background: url(../../img/ico3.jpg) no-repeat center top;
   background-size: 0.666667rem 0.666667rem;
 }
 
-.machine-status .machine-content .warning .num em {
+.machine-status .machine-content .contwrap .warning .num em {
   width: 0.346667rem;
   height: 0.346667rem;
   line-height: 0.373333rem;
@@ -205,30 +221,25 @@ h3 {
 }
 
 .machine-status .arrow {
-  padding-top: 0.533333rem;
+  padding-top: 0.4rem;
   width: 100%;
   height: 0.826667rem;
-  line-height: 0.8;
-  text-align: center;
 }
 
 .machine-status .arrow i {
-  width: 0.493333rem;
-  height: 0.293333rem;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
+  display: block;
+  height: 0.426667rem;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  background: url(../../img/arrow.jpg) no-repeat center center;
+  background-size: 0.426667rem 0.266667rem;
 }
 
-.machine-status .arrow i s {
-  text-decoration: none;
-  color: #c6c6c6;
-  position: relative;
-  top: 5px;
-  font-size: 0.48rem;
+.machine-status .arrow i.slide {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
 }
 
 .machine-workmode {

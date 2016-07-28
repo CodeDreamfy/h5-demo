@@ -4,7 +4,8 @@
 
 /* common */
 .machine-items {
-  padding: 0 24px 21px; background: #fff;
+  padding: 0 24px 21px;
+  background: #fff;
   margin-top: 16px;
   box-shadow: 0 1px 0 1px #e2e2e2;/*no*/
   .machine-title {
@@ -17,84 +18,85 @@
 
 /* model */
 .machine-status {
-  position: relative; background: none;
+  position: relative; background: transparent;
   box-shadow: none; margin-bottom: 0;
-  .machine-content { padding-top: 50px; }
   .machine-content {
-    a {
-      width: 25%;
-      float: left;
-      text-align: center;
-      &:nth-child(n+5){
-        margin-top: 64px;
+    overflow: hidden; position: relative; padding: 1px;
+    .contwrap {
+      padding-top: 50px; transition: height 1s, transform 1s;
+      overflow: hidden;
+      &.slide {
+        transform: translate3d(0, -100%, 0);
       }
-      .type {
-        font-size: 26px; color: #343434;
+      a {
+        width: 25%;
+        float: left;
+        text-align: center;
+        &:nth-child(n+5){
+          margin-top: 64px;
+        }
+        .type {
+          font-size: 26px; color: #343434;
+        }
       }
-    }
-    &:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-    .num {
-      margin-bottom: 40px; position: relative;
-      line-height: 50px; height: 50px;
-      i { font-size: 37px; color: #049cff;}
-      small,sup,sub { color: #b9daf9; display: inline-block;}
-    }
-    .speed {
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
       .num {
-        small { font-size: 28px; }
+        margin-bottom: 40px; position: relative;
+        line-height: 50px; height: 50px;
+        i { font-size: 37px; color: #049cff;}
+        small,sup,sub { color: #b9daf9; display: inline-block;}
       }
-    }
-    .time {
-      .num small { font-size: 18px;}
-    }
-    .temperature .num {
-      sup {
-        position: relative;
-        top: -14px;
-        display: inline-block;
+      .speed {
+        .num {
+          small { font-size: 28px; }
+        }
       }
-    }
-    .mode .num {
-      background: url(../../img/ico1.jpg) no-repeat center top;
-      background-size: 50px 50px;
-    }
-    .work-status .num {
-      background: url(../../img/ico2.jpg) no-repeat center top;
-      background-size: 50px 50px;
-    }
-    .warning .num {
-      background: url(../../img/ico3.jpg) no-repeat center top;
-      background-size: 50px 50px;
-      em {
-        width: 26px; height: 26px; line-height: 28px;
-        border-radius: 50%; text-align: center;
-        background: #ff3c02;
-        font-size: 15px; color: #fff;
-        position: absolute; top: -18px; left: 60%;
+      .time {
+        .num small { font-size: 18px;}
+      }
+      .temperature .num {
+        sup {
+          position: relative;
+          top: -14px;
+          display: inline-block;
+        }
+      }
+      .mode .num {
+        background: url(../../img/ico1.jpg) no-repeat center top;
+        background-size: 50px 50px;
+      }
+      .work-status .num {
+        background: url(../../img/ico2.jpg) no-repeat center top;
+        background-size: 50px 50px;
+      }
+      .warning .num {
+        background: url(../../img/ico3.jpg) no-repeat center top;
+        background-size: 50px 50px;
+        em {
+          width: 26px; height: 26px; line-height: 28px;
+          border-radius: 50%; text-align: center;
+          background: #ff3c02;
+          font-size: 15px; color: #fff;
+          position: absolute; top: -18px; left: 60%;
+        }
       }
     }
   }
   .arrow {
-    padding-top: 40px;
+    padding-top: 30px;
     width: 100%; height: 62px;
-    line-height: 0.8;
-    text-align: center;
     i {
-      width: 37px; height: 22px;
-      display: inline-block;
-      overflow: hidden;
-      transition: transform 0.2s;
-      s {
-        text-decoration: none; color: #c6c6c6;
-        position: relative; top: 5px;/*no*/
-        font-size: 36px;
+      display: block; height: 32px; transition: transform 1s;
+      background: url(../../img/arrow.jpg) no-repeat center center;
+      background-size: 32px 20px;
+      &.slide {
+        transform: rotateX(180deg);
       }
     }
-
   }
 }
 .machine-workmode {

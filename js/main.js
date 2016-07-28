@@ -2,34 +2,50 @@ $(function(){
   var $machineStatus = $('.machine-status');
   var $mStatusContent = $machineStatus.find('.machine-content');
   var $machineWorkMode = $('.machine-workmode');
-
-  $machineStatus.on('click', '.arrow', function(){
+  var dpRem = parseInt($('html').css('fontSize')); //单位rem
+  var h = ($mStatusContent.height()/dpRem).toFixed(6);
+  $mStatusContent.find('.contwrap').css('height', h+'rem');
+  $machineStatus.on('touchend', '.arrow', function(){
     var _this = $(this);
-    _this.find('i').toggleClass('deg');
-    $mStatusContent.toggle();
-  })
+    var $contwrap = $mStatusContent.find('.contwrap');
+    if(!_this.attr('flag')){
+      _this.attr('flag', true);
+      _this.find('i').addClass('slide')
+      $contwrap.css({
+        height: 0
+      });
+      $contwrap.addClass('slide')
+    }else {
+      _this.removeAttr('flag');
+      _this.find('i').addClass('slide');
+      $contwrap.css('height', h+'rem');
+      $contwrap.removeClass('slide')
+    }
 
+  })
   var mySwiper = new Swiper('.swiper-container', {
     slidesPerView : 4,
   });
+  initUislide(eq1);
 
-  $('.machine-setheat .ui-slide-cont').Uislidebar({
-    desc: ['-10','-12','-14','-16'],
-    allowSlide: true,
-    descShow: true,
-    spotShow: true,
-    progress: false,
-    initialDuang: 1
-  });
-  $('.machine-speed .ui-slide-cont').Uislidebar({
-    allowSlide: true,
-    descShow: false
-  })
 
-  $('.machine-timer .ui-slide-cont').Uislidebar({
-    desc: ['0秒','30秒','1分钟','1分30秒','2分钟','2分30秒','3分钟','3分30秒','5分钟'],
-    allowSlide: true
+  $machineWorkMode.on('click', '.swiper-wrapper .swiper-slide', function(){
+    var _this = $(this), _index = _this.index();
+    _this.addClass('active').siblings().removeClass('active')
+    switch(_index){
+      case 0: initUislide(eq1); break;
+      case 1: initUislide(eq2); break;
+      case 2: initUislide(eq3); break;
+      case 3: initUislide(eq4); break;
+    }
+
+
   })
+  function initUislide(obj){
+    $('.machine-turn').children().each(function(i,e){
+      $(e).Uislidebar(obj[i]);
+    });
+  }
 
 
   function basiceUislide(){
