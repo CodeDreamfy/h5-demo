@@ -1,0 +1,48 @@
+.cloudRecipes {
+
+}
+.cloudRecipes .list-wrapper .items {
+  background: #fff;
+  min-height: 184px;
+  box-shadow: 0 1px 0 1px #e2e2e2;/*no*/
+  margin-bottom: 15px;
+  .item-wrap {
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    .recipes-img {
+      float: left;
+      width: 200px; height: 100%;
+      margin-right: 34px;
+      img {
+        vertical-align: middle;
+      }
+      &:after {
+        content: '';
+        width: 1px; height: 100%; display: inline-block;
+        margin-right: -1px;
+        vertical-align: middle;
+      }
+    }
+    .recipes-content {
+      overflow: hidden;
+      padding-right: 78px; margin-top: 34px;
+      position: relative;
+      .title {
+        font-size: 30px; color: #333;
+      }
+      .desc {
+        font-size: 24px;
+        line-height: 38px;
+        margin-top: 18px;
+        color: #999;
+      }
+      a.more {
+        width: 78px;
+        height: 100%;
+        position: absolute; right: 0; top: 0;
+        background: url(../../img/arrow-right.jpg) no-repeat center center;
+      }
+    }
+  }
+
+}

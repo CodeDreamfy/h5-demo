@@ -17,7 +17,7 @@ $(function(){
       $contwrap.addClass('slide')
     }else {
       _this.removeAttr('flag');
-      _this.find('i').addClass('slide');
+      _this.find('i').removeClass('slide');
       $contwrap.css('height', h+'rem');
       $contwrap.removeClass('slide')
     }
@@ -29,7 +29,7 @@ $(function(){
   initUislide(eq1);
 
 
-  $machineWorkMode.on('click', '.swiper-wrapper .swiper-slide', function(){
+  $machineWorkMode.on('touchend', '.swiper-wrapper .swiper-slide', function(){
     var _this = $(this), _index = _this.index();
     _this.addClass('active').siblings().removeClass('active')
     switch(_index){
@@ -37,6 +37,8 @@ $(function(){
       case 1: initUislide(eq2); break;
       case 2: initUislide(eq3); break;
       case 3: initUislide(eq4); break;
+      case 4: initUislide(eq5); break;
+      default: open();
     }
 
 
@@ -47,6 +49,9 @@ $(function(){
     });
   }
 
+  function open(){
+    window.open('/cloundlist','_self')
+  }
 
   function basiceUislide(){
     var $uiSlideCont = $('.ui-slide-cont');

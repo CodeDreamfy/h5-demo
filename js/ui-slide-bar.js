@@ -38,9 +38,10 @@ $.extend(UiSlideBar.prototype, {
       this.ml = $('.ui-slider-bar').offset().left;  //距离左边的距离
       this.moveStart = this.moveEnd = 0;
 
-      //清除元素
+      //清除元素与事件
       this.$xlabel.children().remove();
       this.$spot.children().remove();
+      this.$wrap.off('touchstart touchend touchmove')
 
       //重新计算传入初始化档数
       this.initialDuang = this.initDuang(this.options.initialDuang); //处理初始化参数为负数的情况

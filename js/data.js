@@ -99,3 +99,16 @@ var eq4 = [
     spotShow: false
   }
 ];
+var eq5 = [
+  {
+    desc: ['-10', '-5', '0', '5', '10', '15', '20', '25', '30'],
+    initialDuang: 0
+  },
+  {
+    initialDuang: '4档'
+  },
+  {
+    desc: ['制冷', '制热', '自动', '除湿', '送风', '加湿'],
+    initialDuang: '自动'
+  }
+];

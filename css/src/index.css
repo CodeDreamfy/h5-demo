@@ -23,9 +23,10 @@
   .machine-content {
     overflow: hidden; position: relative; padding: 1px;
     .contwrap {
-      padding-top: 50px; transition: height 1s, transform 1s;
+      padding-top: 50px; transition: all 1s;
       overflow: hidden;
       &.slide {
+        padding-top: 0;
         transform: translate3d(0, -100%, 0);
       }
       a {
@@ -90,7 +91,7 @@
     padding-top: 30px;
     width: 100%; height: 62px;
     i {
-      display: block; height: 32px; transition: transform 1s;
+      display: block; height: 32px; transition: transform 2s;
       background: url(../../img/arrow.jpg) no-repeat center center;
       background-size: 32px 20px;
       &.slide {
@@ -106,8 +107,8 @@
      .swiper-wrapper {
       .swiper-slide {
         &.active {
-          background: linear-gradient(#ededed, #fff);
-          box-shadow: inset 0 1px 2px 0 #ccc;
+          background: linear-gradient( #ededed, #fff);
+          box-shadow: inset 0 0 1px 0 #ccc;
         }
         padding-top: 30px;
         a { display: block;}
@@ -161,10 +162,60 @@
   }
 }
 .machine-setheat {
-
 }
 .machine-speed {
 
+}
+
+.machine-working {
+  /*display: none;*/
+  .working-wrapper {
+    margin: 86px auto 96px;
+    &>p {
+      width: 50%; margin: 0 auto;
+      font-size: 26px; color: #363636;
+      line-height: 72px;
+      &:after {
+        width: 1px;
+        height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: -1px;
+      }
+      i {
+        width: 44px; height: 38px;
+        display: inline-block; vertical-align: middle;
+        margin-top: -3px;/*no*/ margin-right: 23px;
+      }
+      span {
+        font-size: 30px; color: #0d9aff; margin-right: 12px;
+      }
+      &.times>i {
+        background: url(../../img/working-times-ico.jpg) no-repeat 0 0;
+        background-size: 44px 38px;
+      }
+      &.temp>i {
+        background: url(../../img/working-temp-ico.jpg) no-repeat 0 0;
+        background-size: 44px 38px;
+      }
+      &.speed>i {
+        background: url(../../img/working-speed-ico.jpg) no-repeat 0 0;
+        background-size: 44px 38px;
+      }
+      &.success>i {
+        background: url(../../img/working-succ-ico.jpg) no-repeat 0 0;
+        background-size: 44px 38px;
+      }
+    }
+  }
+}
+.startBtn {
+  display: block; margin: 46px auto;
+  width: 702px;
+  height: 96px; line-height: 96px;
+  text-align: center; font-size: 34px;
+  color: #fff;
+  border-radius: 52px; background: #099bff;
 }
 /* animation */
 .deg {
@@ -203,7 +254,7 @@
       position: absolute; top: 50%;  margin-top: -20px; margin-left: -20px;
       background: #109fff; color: #109fff; z-index: 4;
       span.now {
-        width: 300%; text-align: center; overflow: hidden;
+        width: 200%; text-align: center; overflow: hidden;
         position: absolute; top: -45px; left: 50%; transform: translateX(-50%);
         padding: 0 3px;/*no*/
         color: inherit; font-size: 25px;

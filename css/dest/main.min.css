@@ -74,12 +74,18 @@ h3 {
   height: 0;
 }
 
+.hidden {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* common */
 
 .wrapper {
   width: 100%;
   height: 100%;
-  margin: 0 auto;
+  margin: 0 auto 0.906667rem;
   overflow-y: auto;
   background: #f5f5f5;
 }
@@ -125,14 +131,13 @@ h3 {
 
 .machine-status .machine-content .contwrap {
   padding-top: 0.666667rem;
-  -webkit-transition: height 1s, -webkit-transform 1s;
-  transition: height 1s, -webkit-transform 1s;
-  transition: height 1s, transform 1s;
-  transition: height 1s, transform 1s, -webkit-transform 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   overflow: hidden;
 }
 
 .machine-status .machine-content .contwrap.slide {
+  padding-top: 0;
   -webkit-transform: translate3d(0, -100%, 0);
           transform: translate3d(0, -100%, 0);
 }
@@ -229,10 +234,10 @@ h3 {
 .machine-status .arrow i {
   display: block;
   height: 0.426667rem;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
   background: url(../../img/arrow.jpg) no-repeat center center;
   background-size: 0.426667rem 0.266667rem;
 }
@@ -255,9 +260,9 @@ h3 {
 }
 
 .machine-workmode .swiper-container .swiper-wrapper .swiper-slide.active {
-  background: -webkit-linear-gradient(#ededed, #fff);
-  background: linear-gradient(#ededed, #fff);
-  box-shadow: inset 0 0.013333rem 0.026667rem 0 #ccc;
+  background: -webkit-linear-gradient( #ededed, #fff);
+  background: linear-gradient( #ededed, #fff);
+  box-shadow: inset 0 0 0.013333rem 0 #ccc;
 }
 
 .machine-workmode .swiper-container .swiper-wrapper .swiper-slide a {
@@ -305,6 +310,76 @@ h3 {
 .machine-workmode .swiper-container .swiper-wrapper .slide6 .icon {
   background: url(../../img/w2.png) no-repeat center top;
   background-size: 1.293333rem 1.293333rem;
+}
+
+/*display: none;*/
+
+.machine-working .working-wrapper {
+  margin: 1.146667rem auto 1.28rem;
+}
+
+.machine-working .working-wrapper>p {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 0.346667rem;
+  color: #363636;
+  line-height: 0.96rem;
+}
+
+.machine-working .working-wrapper>p:after {
+  width: 0.013333rem;
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: -0.013333rem;
+}
+
+.machine-working .working-wrapper>p i {
+  width: 0.586667rem;
+  height: 0.506667rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-right: 0.306667rem;
+}
+
+.machine-working .working-wrapper>p span {
+  font-size: 0.4rem;
+  color: #0d9aff;
+  margin-right: 0.16rem;
+}
+
+.machine-working .working-wrapper>p.times>i {
+  background: url(../../img/working-times-ico.jpg) no-repeat 0 0;
+  background-size: 0.586667rem 0.506667rem;
+}
+
+.machine-working .working-wrapper>p.temp>i {
+  background: url(../../img/working-temp-ico.jpg) no-repeat 0 0;
+  background-size: 0.586667rem 0.506667rem;
+}
+
+.machine-working .working-wrapper>p.speed>i {
+  background: url(../../img/working-speed-ico.jpg) no-repeat 0 0;
+  background-size: 0.586667rem 0.506667rem;
+}
+
+.machine-working .working-wrapper>p.success>i {
+  background: url(../../img/working-succ-ico.jpg) no-repeat 0 0;
+  background-size: 0.586667rem 0.506667rem;
+}
+
+.startBtn {
+  display: block;
+  margin: 0.613333rem auto;
+  width: 9.36rem;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  text-align: center;
+  font-size: 0.453333rem;
+  color: #fff;
+  border-radius: 0.693333rem;
+  background: #099bff;
 }
 
 /* animation */
@@ -369,7 +444,7 @@ h3 {
 }
 
 .ui-slide-cont .ui-slider-bar .ui-slider-handle span.now {
-  width: 300%;
+  width: 200%;
   text-align: center;
   overflow: hidden;
   position: absolute;
@@ -426,4 +501,64 @@ h3 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.cloudRecipes .list-wrapper .items {
+  background: #fff;
+  min-height: 2.453333rem;
+  box-shadow: 0 1px 0 1px #e2e2e2;
+  margin-bottom: 0.2rem;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap {
+  overflow: hidden;
+  border-top: 0.013333rem solid transparent;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-img {
+  float: left;
+  width: 2.666667rem;
+  height: 100%;
+  margin-right: 0.453333rem;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-img img {
+  vertical-align: middle;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-img:after {
+  content: '';
+  width: 0.013333rem;
+  height: 100%;
+  display: inline-block;
+  margin-right: -0.013333rem;
+  vertical-align: middle;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content {
+  overflow: hidden;
+  padding-right: 1.04rem;
+  margin-top: 0.453333rem;
+  position: relative;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content .title {
+  font-size: 0.4rem;
+  color: #333;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content .desc {
+  font-size: 0.32rem;
+  line-height: 0.506667rem;
+  margin-top: 0.24rem;
+  color: #999;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more {
+  width: 1.04rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../../img/arrow-right.jpg) no-repeat center center;
 }
