@@ -580,16 +580,18 @@ h3 {
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more i {
   position: absolute;
-  width: 0.28rem;
-  height: 0.44rem;
+  width: 0.453333rem;
+  height: 0.453333rem;
   top: 50%;
   left: 50%;
-  margin-left: -0.133333rem;
-  margin-top: -0.213333rem;
+  margin-left: -0.226667rem;
+  margin-top: -0.226667rem;
   background: url(../../img/arrow-right.jpg) no-repeat center center;
   background-size: 0.28rem 0.44rem;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more i.ani {
@@ -600,4 +602,32 @@ h3 {
 .cloudRecipes .list-wrapper .items .configlist {
   display: none;
   padding: 0.32rem;
+}
+
+.cloudRecipes .list-wrapper .items .configlist .desc {
+  margin-top: 0;
+}
+
+.cloudRecipes .list-wrapper .items .configlist .typelist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 0.16rem;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  border-top: 0.013333rem solid #f1f1f1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cloudRecipes .list-wrapper .items .configlist .typelist span {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 0.373333rem;
+  text-align: center;
+  line-height: 0.48rem;
+  height: 0.48rem;
+  background: ;
 }

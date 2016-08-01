@@ -50,11 +50,11 @@
         position: absolute; right: 0; top: 0;
         i {
           position: absolute;
-          width: 21px; height: 33px;
-          top: 50%; left: 50%; margin-left: -10px; margin-top: -16px;
+          width: 34px; height: 34px;
+          top: 50%; left: 50%; margin-left: -17px; margin-top: -17px;
           background: url(../../img/arrow-right.jpg) no-repeat center center;
           background-size: 21px 33px;
-          transition: all 1s;
+          transition: transform 1s;
           &.ani {
             transform: rotate(90deg);
           }
@@ -66,5 +66,12 @@
   .configlist {
     display: none;
     padding: 24px;
+    .desc { margin-top: 0;}
+    .typelist {
+      display: flex; padding-top: 12px;
+      flex-flow: row nowrap; border-top: 1px solid #f1f1f1;
+      justify-content: space-between;
+      span { flex-grow: 1; font-size: 28px; text-align: center; line-height: 36px; height: 36px; background: ;}
+    }
   }
 }
