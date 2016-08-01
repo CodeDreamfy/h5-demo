@@ -3,17 +3,25 @@
 }
 .cloudRecipes .list-wrapper .items {
   background: #fff;
-  min-height: 184px;
   box-shadow: 0 1px 0 1px #e2e2e2;/*no*/
   margin-bottom: 15px;
+  .desc {
+    font-size: 24px;
+    line-height: 38px;
+    margin-top: 18px;
+    color: #999;
+    transition: all 1s;
+  }
   .item-wrap {
     overflow: hidden;
+    transition: all 1s;
     border-top: 1px solid transparent;
     .recipes-img {
       float: left;
       width: 200px; height: 100%;
       margin-right: 34px;
       img {
+        width: 100%;
         vertical-align: middle;
       }
       &:after {
@@ -24,25 +32,39 @@
       }
     }
     .recipes-content {
-      overflow: hidden;
+      overflow: hidden; max-height: 184px;
       padding-right: 78px; margin-top: 34px;
       position: relative;
       .title {
+        transition: all 1.4s;
         font-size: 30px; color: #333;
-      }
-      .desc {
-        font-size: 24px;
-        line-height: 38px;
-        margin-top: 18px;
-        color: #999;
+        &.ani {
+          transform: translate3d(0,20px,0);
+          font-size: 36px; height: 80px; line-height: 80px;
+          color: #0d9aff;
+        }
       }
       a.more {
         width: 78px;
         height: 100%;
         position: absolute; right: 0; top: 0;
-        background: url(../../img/arrow-right.jpg) no-repeat center center;
+        i {
+          position: absolute;
+          width: 21px; height: 33px;
+          top: 50%; left: 50%; margin-left: -10px; margin-top: -16px;
+          background: url(../../img/arrow-right.jpg) no-repeat center center;
+          background-size: 21px 33px;
+          transition: all 1s;
+          &.ani {
+            transform: rotate(90deg);
+          }
+        }
+
       }
     }
   }
-
+  .configlist {
+    display: none;
+    padding: 24px;
+  }
 }

@@ -52,12 +52,14 @@ $.extend(UiSlideBar.prototype, {
       // initLen = (this.initialDuang == 0 ? this.initialDuang : this.initialDuang-1); //初始化长度
       initLen = this.initialDuang -1;
       var leftLen = ((this.divNum* initLen)/this.dpRem) + 'rem';
+      if(!this.options.allowSlide){ this.options.btnColor = '#ccc';} //禁用滑动则btn变灰色
       this.$handle.css({
         'transform': 'translate3d('+leftLen+',0,0)',
         'background': this.options.btnColor, 'color': this.options.btnColor}); //set 按钮
       this.$range.css({'width': leftLen, 'background': this.options.btnColor});
       //设置tips
       this.$handle.find('span').text(this.options.desc[initLen]);
+
 
 
 

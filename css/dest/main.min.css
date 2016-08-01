@@ -505,13 +505,23 @@ h3 {
 
 .cloudRecipes .list-wrapper .items {
   background: #fff;
-  min-height: 2.453333rem;
   box-shadow: 0 1px 0 1px #e2e2e2;
   margin-bottom: 0.2rem;
 }
 
+.cloudRecipes .list-wrapper .items .desc {
+  font-size: 0.32rem;
+  line-height: 0.506667rem;
+  margin-top: 0.24rem;
+  color: #999;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 .cloudRecipes .list-wrapper .items .item-wrap {
   overflow: hidden;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   border-top: 0.013333rem solid transparent;
 }
 
@@ -523,6 +533,7 @@ h3 {
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-img img {
+  width: 100%;
   vertical-align: middle;
 }
 
@@ -537,21 +548,26 @@ h3 {
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content {
   overflow: hidden;
+  max-height: 2.453333rem;
   padding-right: 1.04rem;
   margin-top: 0.453333rem;
   position: relative;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content .title {
+  -webkit-transition: all 1.4s;
+  transition: all 1.4s;
   font-size: 0.4rem;
   color: #333;
 }
 
-.cloudRecipes .list-wrapper .items .item-wrap .recipes-content .desc {
-  font-size: 0.32rem;
-  line-height: 0.506667rem;
-  margin-top: 0.24rem;
-  color: #999;
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content .title.ani {
+  -webkit-transform: translate3d(0,0.266667rem,0);
+          transform: translate3d(0,0.266667rem,0);
+  font-size: 0.48rem;
+  height: 1.066667rem;
+  line-height: 1.066667rem;
+  color: #0d9aff;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more {
@@ -560,5 +576,28 @@ h3 {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more i {
+  position: absolute;
+  width: 0.28rem;
+  height: 0.44rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.133333rem;
+  margin-top: -0.213333rem;
   background: url(../../img/arrow-right.jpg) no-repeat center center;
+  background-size: 0.28rem 0.44rem;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more i.ani {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.cloudRecipes .list-wrapper .items .configlist {
+  display: none;
+  padding: 0.32rem;
 }
