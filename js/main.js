@@ -2,7 +2,7 @@ $(function(){
   var $machineStatus = $('.machine-status');
   var $mStatusContent = $machineStatus.find('.machine-content');
   var $machineWorkMode = $('.machine-workmode');
-  var dpRem = parseInt($('html').css('fontSize')); //单位rem
+  var dpRem = parseInt($('html').css('fontSize'));  //单位rem
   var h = ($mStatusContent.height()/dpRem).toFixed(6);
   $mStatusContent.find('.contwrap').css('height', h+'rem');
   $machineStatus.on('touchend', '.arrow', function(){
@@ -50,7 +50,7 @@ $(function(){
   }
 
   function open(){
-    window.open('/cloundlist','_self')
+    window.open('cloundlist.html','_self')
   }
 
   function basiceUislide(){
