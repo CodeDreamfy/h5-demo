@@ -509,19 +509,16 @@ h3 {
 }
 
 .cloudRecipes .list-wrapper .items .desc {
-  font-size: 0.32rem;
   line-height: 0.506667rem;
   margin-top: 0.24rem;
   color: #999;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  font-size: 0.32rem;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap {
   background: #fff;
   overflow: hidden;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  position: relative;
   border-top: 0.013333rem solid transparent;
 }
 
@@ -555,19 +552,8 @@ h3 {
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content .title {
-  -webkit-transition: all 1.4s;
-  transition: all 1.4s;
   font-size: 0.4rem;
   color: #333;
-}
-
-.cloudRecipes .list-wrapper .items .item-wrap .recipes-content .title.ani {
-  -webkit-transform: translate3d(0,0.266667rem,0);
-          transform: translate3d(0,0.266667rem,0);
-  font-size: 0.48rem;
-  height: 1.066667rem;
-  line-height: 1.066667rem;
-  color: #0d9aff;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more {
@@ -588,10 +574,10 @@ h3 {
   margin-top: -0.226667rem;
   background: url(../../img/arrow-right.jpg) no-repeat center center;
   background-size: 0.28rem 0.44rem;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
 }
 
 .cloudRecipes .list-wrapper .items .item-wrap .recipes-content a.more i.ani {
@@ -600,10 +586,14 @@ h3 {
 }
 
 .cloudRecipes .list-wrapper .items .configlist {
-  box-shadow: 0 -0.013333rem 0.08rem 0 #ccc;
-  display: none;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding: 0;
   background: rgba(255,255,255,1);
-  padding: 0.32rem;
+  box-shadow: 0 -0.013333rem 0.08rem 0 #ccc;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .cloudRecipes .list-wrapper .items .configlist .desc {
@@ -662,4 +652,21 @@ h3 {
   margin-right: -0.013333rem;
   display: inline-block;
   vertical-align: middle;
+}
+
+.cloudRecipes .list-wrapper .items .configlist .btnsure {
+  height: 0.613333rem;
+  line-height: 0.613333rem;
+  text-align: center;
+  font-size: 0.4rem;
+  border-radius: 0.24rem;
+  color: #fff;
+  display: block;
+  background: #0d9aff;
+  margin: 0.213333rem auto 0;
+}
+
+.cloudRecipes .list-wrapper .items .configlist.ani {
+  padding: 0.32rem;
+  overflow: auto;
 }

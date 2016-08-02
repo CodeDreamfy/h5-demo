@@ -119,7 +119,7 @@ $.extend(UiSlideBar.prototype, {
     _bindEvent: function(){
       var _this = this;
       this.$wrap.on('touchstart', '.ui-slider-bar', function(e){
-        event.preventDefault();
+        e.preventDefault();
         var g = e.originalEvent.touches[0];
         this.ml = $('.ui-slider-bar').offset().left;
         var distance = _this.range(g.pageX - _this.ml);
@@ -137,13 +137,13 @@ $.extend(UiSlideBar.prototype, {
         });
 
       }).on('touchstart', '.ui-slider-handle', function(e){
-        event.preventDefault();
+        e.preventDefault();
         var g = e.originalEvent.touches[0];
         this.ml = $('.ui-slider-bar').offset().left;
         _this.moveStart = g.pageX - _this.ml;
 
       }).on('touchmove', '.ui-slider-handle', function(e){
-        event.preventDefault();
+        e.preventDefault();
         var g = e.originalEvent.touches[0];
         _this.moveEnd = g.pageX - _this.ml;
         var distance = _this.range(_this.moveEnd);
@@ -174,7 +174,7 @@ $.extend(UiSlideBar.prototype, {
         _this.$range.animate({width: distance.left}, 300, function(){
           _this.setSpot();
         });
-        event.preventDefault();
+        e.preventDefault();
         // console.log(_this.options.desc[_this.deepStalls])
       })
     },
