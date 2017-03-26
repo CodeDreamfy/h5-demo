@@ -2,19 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum=1.0">
+	<!--<meta name="viewport" content="windth=device-width, initial-scale=.5,user-scalable=no">-->
   <title>Document</title>
   <script src="./js/lib/zepto.js"></script>
+	<script>
+
+		var e = window.innerWidth;
+		// $('html').css({
+		// 	fontSize: e/10
+		// })
+		// console.log(e)
+		var dpr = window.devicePixelRatio;
+		var vpMeta = document.createElement("meta");
+		vpMeta.setAttribute("name", "viewport");
+		// var meta = document.getElementsByTagName('meta')[0];
+		vpMeta.setAttribute('content', 'initial-scale=' + 1/dpr + ', maximum-scale=' + 1/dpr + ', minimum-scale=' + 1/dpr + ', user-scalable=no');
+		document.documentElement.firstElementChild.appendChild(vpMeta)
+    $('.box').html(window.innerWidth)
+  </script>
   <style>
     * { margin:0; padding:0; }
-    .box { width: 360px; height: 100px; background: #ccc;}
+		html{
+			font-size: 75px;
+		}
+    .box { width: 10rem; height: 4.83rem; background: #ccc; border-bottom: 2px solid #0f0; color: red}
+		/*
+		@media screen and (min-device-width:414px) and (max-device-width:414px) {
+			html { font-size: 41.4px}
+		}
+		@media screen and (min-device-width:375px) and (max-device-width:375px) {
+			html { font-size: 37.5px}
+		}
+		@media screen and (min-device-width:320px) and (max-device-width:320px) {
+			html { font-size: 32px}
+		}
+		*/
   </style>
 
 </head>
 <body>
   <div class="box"></div>
-  <script>
-    $('.box').html($(window).width())
-  </script>
+  
 </body>
 </html>
